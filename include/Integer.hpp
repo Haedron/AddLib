@@ -14,17 +14,17 @@
 #include "Convert.hpp"
 
 NAMESPACE_START
-namespace java {
-namespace lang {
 
 class Integer: public Number<int> {
 public:
 
-    Integer(const int &value): Number<int>(value) {}
+    Integer(const int &value, const std::string &name = "Integer", const Class *myClass = _class): Number<int>(value, name, myClass) {}
+
+private:
+
+    const static Class _class("Integer");
 };
 
-}                                       // namespace lang
-}                                       // namespace java
 NAMESPACE_END
 
 #endif                                  // #if !defined(INTEGER_HPP)

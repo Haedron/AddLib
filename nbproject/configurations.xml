@@ -36,7 +36,7 @@
           <itemPath>include/Class.hpp</itemPath>
           <itemPath>include/Convert.hpp</itemPath>
           <itemPath>include/Number.hpp</itemPath>
-          <itemPath>include/Object.hpp</itemPath>
+          <itemPath>include/Object.h</itemPath>
           <itemPath>include/Objectify.hpp</itemPath>
           <itemPath>include/Pointer.hpp</itemPath>
         </logicalFolder>
@@ -63,7 +63,8 @@
                    displayName="Source Files"
                    projectFiles="true"
                    kind="SOURCE_LOGICAL_FOLDER">
-      <itemPath>main.cpp</itemPath>
+      <itemPath>src/Object.cpp</itemPath>
+      <itemPath>src/main.cpp</itemPath>
     </logicalFolder>
     <logicalFolder name="f1" displayName="Templates" projectFiles="true">
       <itemPath>templates/Template.cpp</itemPath>

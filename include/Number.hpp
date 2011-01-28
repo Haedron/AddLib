@@ -10,19 +10,20 @@
 #if !defined(NUMBER_HPP)
 #define	NUMBER_HPP
 
+#include <string>
+
 #include "Namespace.hpp"
-#include "Object.hpp"
+#include "Class.hpp"
+#include "Object.h"
 #include "Convert.hpp"
 
 NAMESPACE_START
-namespace java {
-namespace lang {
 
 template <typename T>
 class Number: public Object {
 public:
 
-    Number(const T &value) {
+    Number(const T &value, const std::string &name = "Number", const Class *myClass = _class): Object(name, myClass) {
         _number = value;
     }
 
@@ -39,40 +40,40 @@ public:
     }
 
     std::string toString(const T &_value) {
-        return System::Convert::ToString(_value);
+        return Convert::ToString(_value);
     }
 
     virtual double doubleValue() {
-        return System::Convert::ToDouble(_number);
+        return Convert::ToDouble(_number);
     }
 
     virtual float floatValue() {
-        return System::Convert::ToDouble(_number);
+        return Convert::ToDouble(_number);
     }
 
     virtual int intValue() {
-        return System::Convert::ToInt(_number);
+        return Convert::ToInt(_number);
     }
 
     virtual long longValue() {
-        return System::Convert::ToLong(_number);
+        return Convert::ToLong(_number);
     }
 
     virtual short shortValue() {
-        return System::Convert::ToShort(_number);
+        return Convert::ToShort(_number);
     }
 
     virtual long long longLongValue() {
-        return System::Convert::ToLongLong(_number);
+        return Convert::ToLongLong(_number);
     }
 
 private:
 
+    const static Class _class("Number");
+
     T _number;
 };
 
-}                                       // namespace lang
-}                                       // namespace java
 NAMESPACE_END
 
 #endif                                  // #if !defined(NUMBER_HPP)

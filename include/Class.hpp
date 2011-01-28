@@ -10,22 +10,20 @@
 #if !defined(CLASS_HPP)
 #define	CLASS_HPP
 
-#include "Object.hpp"
+#include "Object.h"
 
 NAMESPACE_START
-namespace java {
-namespace lang {
 
 class Class: public Object {
 public:
+
+    Class(const std::string &name): Object(name) {}
 
     std::string toString() {
         return getName();
     }
 };
 
-}                                       // namespace lang
-}                                       // namespace java
 NAMESPACE_END
 
 #endif                                  // #if !defined(CLASS_HPP)
