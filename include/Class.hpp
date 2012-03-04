@@ -17,10 +17,14 @@ NAMESPACE_START
 class Class: public Object {
 public:
 
-    Class(const std::string &name): Object(name) {}
+    Class(const std::string &aName): Object(aName) {}
 
-    std::string toString() {
-        return getName();
+    operator const char*() {
+        return __name__.c_str();
+    }
+
+    std::string toString() const {
+        return __name__;
     }
 };
 

@@ -35,35 +35,39 @@ public:
         return true;
     }
 
-    std::string toString() {
+    const T &getNumber() const {
+        return _number;
+    }
+
+    std::string toString() const {
         return toString(_number);
     }
 
-    std::string toString(const T &_value) {
+    static std::string toString(const T &_value) const {
         return Convert::ToString(_value);
     }
 
-    virtual double doubleValue() {
+    virtual double doubleValue() const {
         return Convert::ToDouble(_number);
     }
 
-    virtual float floatValue() {
-        return Convert::ToDouble(_number);
+    virtual float floatValue() const {
+        return Convert::ToFloat(_number);
     }
 
-    virtual int intValue() {
+    virtual int intValue() const {
         return Convert::ToInt(_number);
     }
 
-    virtual long longValue() {
+    virtual long longValue() const {
         return Convert::ToLong(_number);
     }
 
-    virtual short shortValue() {
+    virtual short shortValue() const {
         return Convert::ToShort(_number);
     }
 
-    virtual long long longLongValue() {
+    virtual long long longLongValue() const {
         return Convert::ToLongLong(_number);
     }
 

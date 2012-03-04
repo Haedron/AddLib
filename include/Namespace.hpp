@@ -11,11 +11,11 @@
 #define	NAMESPACE_HPP
 
 #if !defined(NAMESPACE)
-#define NAMESPACE AddLib
+#define NAMESPACE Add
 #endif
 
 #if !defined(NAMESPACE_START)
-#define NAMESPACE_START namespace AddLib {
+#define NAMESPACE_START namespace Add {
 #endif
 
 #if !defined(NAMESPACE_END)

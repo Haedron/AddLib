@@ -1,29 +1,44 @@
+/*- HEADER FILES -------------------------------------------------------------*/
+
+// Main Header File
+
 #include "Object.h"
+
+// Other Header Files
+
 #include "Class.hpp"
-#include "Pointer.hpp"
+#include "C++.hpp"
+#include "Convert.hpp"
 
-Object::Object(const std::string &name = "", const Class *myClass = NULL):
-        _name(name),
-        _class(myClass),
-        _pointer(new Pointer(this)) {}
+const Class * const Object::__class__ = new Class("Object");
 
-Object::~Object() {
-    delete _pointer;
-    _pointer = NULL;
+/*- METHOD DEFINITIONS -------------------------------------------------------*/
+
+Object::Object(const std::string &aName):
+        __name__(aName) {}
+
+Object::~Object() {}
+
+bool Object::equals(const Object &another) const {
+    return (this == &another);
 }
 
-bool Object::equals(const Object &other) const {
-    return (this == &other);
+const Class &Object::getClass() const {
+    return *__class__;
 }
 
-Class Object::getClass() {
-    return *_class;
+std::string Object::toString() const {
+    return __class__->toString() + "@" + Convert::ToString(this);
 }
 
-std::string Object::toString() {
-    return _class->toString() + "@" + _pointer->toString();
+std::string Object::getName() const {
+    return __name__;
 }
 
-std::string Object::getName() {
-    return _name;
+uintptr_t Object::hashCode() const {
+    return (uintptr_t) this;
+}
+
+bool Object::operator ==(const Object &another) const {
+    return (this == &another);
 }

@@ -10,6 +10,7 @@
 #if !defined(POINTER_HPP)
 #define POINTER_HPP
 
+#include "Object.h"
 #include "Number.hpp"
 #include "Convert.hpp"
 
@@ -19,7 +20,7 @@ class Pointer: public Object {
 public:
 
     Pointer(const void * const value):
-            Object("", &_class),
+            Object("", "Pointer"),
             _pointer(value) {}
 
     std::string toString() {
@@ -27,8 +28,6 @@ public:
     }
 
 private:
-
-    const static Class _class("Pointer");
 
     const void * const _pointer;
 };

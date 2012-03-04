@@ -8,21 +8,22 @@
 #include <cstdlib>
 #include <iostream>
 
-#include "Namespace.hpp"
+//#include "Namespace.hpp"
 #include "Object.h"
-#include "Objectify.hpp"
-#include "Class.hpp"
-#include "Convert.hpp"
-#include "Number.hpp"
-#include "Pointer.hpp"
-#include "Integer.hpp"
+//#include "Objectify.hpp"
+//#include "Class.hpp"
+//#include "Convert.hpp"
+//#include "Number.hpp"
+//#include "Pointer.hpp"
+//#include "Integer.hpp"
+//#include "DoubleBuffer.hpp"
 
 using namespace std;
 
 int main(int argc, char** argv)
 {
-    Integer i(5);
-    cout << i.toString() << endl;
+    Object object("test");
+    cout << object.toString() << endl;
     return EXIT_SUCCESS;
 }
 

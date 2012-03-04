@@ -21,21 +21,22 @@ FC=gfortran
 AS=as
 
 # Macros
-CND_PLATFORM=GNU-Linux-x86
+CND_PLATFORM=GNU-MacOSX
 CND_CONF=Release
 CND_DISTDIR=dist
+CND_BUILDDIR=build
 
 # Include project Makefile
 include Makefile.nb
 
 # Object Directory
-OBJECTDIR=build/${CND_CONF}/${CND_PLATFORM}
+OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 
 # Object Files
 OBJECTFILES= \
 	${OBJECTDIR}/src/main.o \
-	${OBJECTDIR}/templates/Template.o \
-	${OBJECTDIR}/src/Object.o
+	${OBJECTDIR}/src/Object.o \
+	${OBJECTDIR}/templates/Template.o
 
 
 # C Compiler Flags
@@ -56,34 +57,34 @@ LDLIBSOPTIONS=
 
 # Build Targets
 .build-conf: ${BUILD_SUBPROJECTS}
-	"${MAKE}"  -f nbproject/Makefile-Release.mk dist/Release/GNU-Linux-x86/addlib
+	"${MAKE}"  -f nbproject/Makefile-${CND_CONF}.mk ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/addlib
 
-dist/Release/GNU-Linux-x86/addlib: ${OBJECTFILES}
-	${MKDIR} -p dist/Release/GNU-Linux-x86
+${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/addlib: ${OBJECTFILES}
+	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
 	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/addlib ${OBJECTFILES} ${LDLIBSOPTIONS} 
 
 ${OBJECTDIR}/src/main.o: src/main.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src
 	${RM} $@.d
-	$(COMPILE.cc) -O3 -Wall -Iinclude -MMD -MP -MF $@.d -o ${OBJECTDIR}/src/main.o src/main.cpp
-
-${OBJECTDIR}/templates/Template.o: templates/Template.cpp 
-	${MKDIR} -p ${OBJECTDIR}/templates
-	${RM} $@.d
-	$(COMPILE.cc) -O3 -Wall -Iinclude -MMD -MP -MF $@.d -o ${OBJECTDIR}/templates/Template.o templates/Template.cpp
+	$(COMPILE.cc) -O3 -Werror -Iinclude -MMD -MP -MF $@.d -o ${OBJECTDIR}/src/main.o src/main.cpp
 
 ${OBJECTDIR}/src/Object.o: src/Object.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src
 	${RM} $@.d
-	$(COMPILE.cc) -O3 -Wall -Iinclude -MMD -MP -MF $@.d -o ${OBJECTDIR}/src/Object.o src/Object.cpp
+	$(COMPILE.cc) -O3 -Werror -Iinclude -MMD -MP -MF $@.d -o ${OBJECTDIR}/src/Object.o src/Object.cpp
+
+${OBJECTDIR}/templates/Template.o: templates/Template.cpp 
+	${MKDIR} -p ${OBJECTDIR}/templates
+	${RM} $@.d
+	$(COMPILE.cc) -O3 -Werror -Iinclude -MMD -MP -MF $@.d -o ${OBJECTDIR}/templates/Template.o templates/Template.cpp
 
 # Subprojects
 .build-subprojects:
 
 # Clean Targets
 .clean-conf: ${CLEAN_SUBPROJECTS}
-	${RM} -r build/Release
-	${RM} dist/Release/GNU-Linux-x86/addlib
+	${RM} -r ${CND_BUILDDIR}/${CND_CONF}
+	${RM} ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/addlib
 
 # Subprojects
 .clean-subprojects:

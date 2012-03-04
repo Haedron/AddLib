@@ -10,36 +10,44 @@
 #ifndef OBJECT_HPP
 #define	OBJECT_HPP
 
+/*- HEADER FILES -------------------------------------------------------------*/
+
+// System Header Files
+
 #include <string>
 
+// Other Header Files
+
 #include "Namespace.hpp"
-#include "Convert.hpp"
 
 NAMESPACE_START
 
 class Class;
-class Pointer;
 
 class Object {
 public:
 
-    Object(const std::string &name = "", const Class *myClass = NULL);
+    Object(const std::string &aName = "");
 
-    virtual ~Object() {}
+    virtual ~Object();
 
-    bool equals(const Object &other) const;
+    bool equals(const Object &another) const;
 
-    Class getClass();
+    const Class &getClass() const;
 
-    virtual std::string toString();
+    virtual std::string toString() const;
 
-    std::string getName();
+    virtual std::string getName() const;
 
-private:
+    virtual uintptr_t hashCode() const;
 
-    std::string _name;
-    Class *_class;
-    Pointer *_pointer;
+    virtual bool operator ==(const Object &another) const;
+
+protected:
+
+    static const Class * const __class__;
+
+    std::string __name__;
 };
 
 NAMESPACE_END
